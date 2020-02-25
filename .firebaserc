@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "new-hope-a1a0b": {
+      "hosting": {
+        "new-hope": [
+          "new-hope-a1a0b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "new-hope-a1a0b"
+  }
+}

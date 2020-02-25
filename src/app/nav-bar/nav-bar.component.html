@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <a class="navbar-brand" routerLink="/">New Hope</a>
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/shopping-cart">Shopping Cart</a>
+        </li>
+        <ng-template #unknownUser>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+        </ng-template>
+        <li class="nav-item" ngbDropdown *ngIf="appUser as user; else unknownUser">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" ngbDropdownToggle>
+            {{ user.name }}
+          </a>
+          <div ngbDropdownMenu>
+            <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
+            <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
+            <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logout()">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
