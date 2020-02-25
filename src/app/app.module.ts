@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDropdownModule }  from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -89,6 +90,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    CustomFormsModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
