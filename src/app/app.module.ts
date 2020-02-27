@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbDropdownModule }  from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { DataTableModule } from 'angular5-data-table';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -23,11 +24,13 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AuthGuard } from './auth-guard.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { from } from 'rxjs';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   { 
     path: '', 
-    component: HomeComponent 
+    component: ProductsComponent 
   },
   { 
     path: 'shopping-cart', 
@@ -63,6 +66,11 @@ const routes: Routes = [
     canActivate: [AuthGuard, AdminAuthGuard]
   },
   { 
+    path: 'admin/products/:id', 
+    component: ProductFormComponent,
+    canActivate: [AuthGuard, AdminAuthGuard]
+  },
+  { 
     path: 'admin/orders', 
     component: AdminOrdersComponent,
     canActivate: [AuthGuard, AdminAuthGuard]
@@ -85,12 +93,14 @@ const routes: Routes = [
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     CustomFormsModule,
+    DataTableModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

@@ -14,7 +14,8 @@ export class AuthService {
 
   user$: Observable<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth, 
+  constructor(
+    private afAuth: AngularFireAuth, 
     private route: ActivatedRoute,
     private userService: UserService) { 
     this.user$ = afAuth.authState;
@@ -23,7 +24,7 @@ export class AuthService {
   login(){
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
-    this.afAuth.signInWithRedirect(new auth.GoogleAuthProvider());
+    this.afAuth.signInWithRedirect(new auth.FacebookAuthProvider());
   }
 
   logout(){

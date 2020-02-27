@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
          this.userService.save(result.user)
          .then(()=> {
            const returnUrl = localStorage.getItem('returnUrl');
+           if( !returnUrl) return;
+
            this.route.navigateByUrl(returnUrl);
+           localStorage.removeItem('returnUrl');
          })
        }
      })

@@ -30,4 +30,16 @@ export class ProductService {
       }))
     );
   }
+
+  get(productId: string): Observable<Product> {
+    return this.productCollection.doc<Product>(productId).valueChanges();
+  }
+
+  update(productId: string, product: Product) {
+    this.productCollection.doc<Product>(productId).update(product);
+  }
+
+  delete(productId) {
+    this.productCollection.doc(productId).delete();
+  }
 }
