@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbDropdownModule }  from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule }  from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { CustomFormsModule } from 'ngx-custom-validators';
 import { DataTableModule } from 'angular5-data-table';
@@ -24,8 +25,9 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AuthGuard } from './auth-guard.service';
 import { AdminAuthGuard } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-import { from } from 'rxjs';
 import { ProductsComponent } from './products/products.component';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 const routes: Routes = [
   { 
@@ -94,7 +96,9 @@ const routes: Routes = [
     AdminProductsComponent,
     AdminOrdersComponent,
     ProductFormComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -105,7 +109,8 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgbCollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

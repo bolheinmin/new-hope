@@ -10,6 +10,7 @@ import { AppUser } from '../models/app-user';
 export class NavBarComponent implements OnInit {
 
   appUser: AppUser;
+  isCollapsed = true;
 
   constructor(
     private auth: AuthService) { }

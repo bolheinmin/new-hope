@@ -15,7 +15,7 @@ import { Product } from '../../models/product';
 export class ProductFormComponent implements OnInit {
 
   categories$: Observable<Category[]>;
-  product: Product;
+  product: Product = { id: '', title: '', category: '', price: 0, imageUrl: '' };
   id: string;
 
   constructor(
