@@ -31,4 +31,12 @@ export class ShoppingCart {
         });
         return count;
     } 
+
+    get totalPrice() {
+        let totalPrice = 0;
+        this.items.forEach(item => {
+         totalPrice += item.totalPrice;
+        });
+        return totalPrice;
+    }
 }

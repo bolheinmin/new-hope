@@ -28,6 +28,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { ProductsComponent } from './products/products.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 
 const routes: Routes = [
   { 
@@ -98,7 +99,8 @@ const routes: Routes = [
     ProductFormComponent,
     ProductsComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   imports: [
     BrowserModule,
