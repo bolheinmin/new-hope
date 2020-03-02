@@ -61,8 +61,13 @@ export class ShoppingCartService {
       take(1)
     )
     .subscribe( (item: any) => {
-      if( item )
-        this.getItemDoc(cartId, product.id).update({ quantity: item.quantity + change });
+      if( item ) {
+        const qty = item.quantity + change;
+        if( qty === 0 )
+         this.getItemDoc(cartId, product.id).delete();
+        else 
+          this.getItemDoc(cartId, product.id).update({ quantity: qty});
+      }
       else
         this.getItemDoc(cartId, product.id).set({
           product: product,
