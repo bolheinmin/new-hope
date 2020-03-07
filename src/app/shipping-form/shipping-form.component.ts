@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { Order } from '../models/order';
 import { take } from 'rxjs/operators';
 import { ShoppingCart } from '../models/shopping-cart';
+import { Shipping } from '../models/shipping';
 
 @Component({
   selector: 'shipping-form',
@@ -14,7 +15,7 @@ import { ShoppingCart } from '../models/shopping-cart';
 export class ShippingFormComponent implements OnInit {
 
   @Input('cart') cart: ShoppingCart;
-  shipping = {};
+  shipping: Shipping = { id: '', name: '', addressLine1: '', addressLine2: '', city: '' };
   private userId: string;
 
   constructor(
