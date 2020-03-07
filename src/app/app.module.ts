@@ -29,6 +29,8 @@ import { ProductsComponent } from './products/products.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { ShippingFormComponent } from './shipping-form/shipping-form.component';
 
 const routes: Routes = [
   { 
@@ -49,7 +51,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { 
-    path: 'order-success', 
+    path: 'order-success/:id', 
     component: OrderSuccessComponent,
     canActivate: [AuthGuard]
   },
@@ -100,7 +102,9 @@ const routes: Routes = [
     ProductsComponent,
     ProductFilterComponent,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    OrderSummaryComponent,
+    ShippingFormComponent
   ],
   imports: [
     BrowserModule,
