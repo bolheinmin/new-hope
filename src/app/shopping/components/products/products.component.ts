@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
 
     this.cart = (await this.cartService.getCart()).subscribe(cart => this.cart = cart);
 
-    this.productService.getAll()
+    this.productService.getAllProducts()
       .pipe(
         switchMap(products => {
           this.products = products;

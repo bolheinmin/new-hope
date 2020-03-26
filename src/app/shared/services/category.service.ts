@@ -16,7 +16,7 @@ export class CategoryService {
     ('name', 'desc'));
    }
 
-  getAll(): Observable<Category[]> {
+  getAllCategories(): Observable<Category[]> {
     return this.categoriesCollection.snapshotChanges().pipe(
       map(categories => categories.map(category => {
           const data = category.payload.doc.data();

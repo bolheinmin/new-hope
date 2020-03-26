@@ -19,7 +19,7 @@ export class ProductService {
     this.productCollection.add(product);
   }
 
-  getAll(): Observable<Product[]>{
+  getAllProducts(): Observable<Product[]> {
     return this.productCollection.snapshotChanges()
     .pipe(
       map(products => products.map(product => {

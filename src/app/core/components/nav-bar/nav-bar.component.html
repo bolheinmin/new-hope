@@ -1,23 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 fixed-top">
+  <div class="container">
     <a class="navbar-brand" routerLink="/">New Hope</a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="mainNav" [ngbCollapse]="isCollapsed">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/shopping-cart">
-            Shopping Cart
+            <i class="fas fa-shopping-cart"></i>
             <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">
               {{ cart.totalItemsCount }}
             </span>
           </a>
         </li>
+      </ul>
+      <ul class="navbar-nav">
         <ng-template #unknownUser>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="/login">Login</a>
-            </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
         </ng-template>
         <li class="nav-item" ngbDropdown *ngIf="appUser as user; else unknownUser">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" ngbDropdownToggle>
@@ -33,4 +36,5 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>

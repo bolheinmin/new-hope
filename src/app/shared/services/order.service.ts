@@ -11,7 +11,9 @@ export class OrderService {
 
   ordersCollection: AngularFirestoreCollection<any>;
 
-  constructor(private afs: AngularFirestore, private cartService: ShoppingCartService) {
+  constructor(
+    private afs: AngularFirestore, 
+    private cartService: ShoppingCartService) {
     this.ordersCollection = afs.collection('orders');
    }
 
@@ -26,5 +28,13 @@ export class OrderService {
     let result = await this.ordersCollection.add(orderObj);
     this.cartService.clearCart();
     return result;
+  }
+
+  getOrders() {
+    return this.ordersCollection.snapshotChanges();
+  }
+
+  getOrdersByUser(userId: string) {
+    return this.afs.collection('/orders', ref => ref.where('userId', '==', userId)).snapshotChanges();
   }
 }

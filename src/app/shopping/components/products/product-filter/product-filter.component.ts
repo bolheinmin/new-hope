@@ -16,7 +16,7 @@ export class ProductFilterComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
-    this.categories$ = this.categoryService.getAll();
+    this.categories$ = this.categoryService.getAllCategories();
   }
 
 }
