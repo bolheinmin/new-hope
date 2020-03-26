@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 
@@ -18,6 +19,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     SharedModule,
+    FontAwesomeModule,
     RouterModule.forChild([])
   ],
   exports: [

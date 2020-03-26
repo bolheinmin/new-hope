@@ -9,7 +9,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/shopping-cart">
-            <i class="fas fa-shopping-cart"></i>
+            <fa-icon [icon]="cartIcon"></fa-icon>
             <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">
               {{ cart.totalItemsCount }}
             </span>

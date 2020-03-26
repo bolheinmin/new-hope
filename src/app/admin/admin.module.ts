@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
+import 'firebase/storage';
 
 import { SharedModule } from '../shared/shared.module';
 import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';

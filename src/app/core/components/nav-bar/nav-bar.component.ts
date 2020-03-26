@@ -4,6 +4,7 @@ import { AppUser } from 'shared/models/app-user';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from 'shared/models/shopping-cart';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,6 +12,8 @@ import { ShoppingCart } from 'shared/models/shopping-cart';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+
+  cartIcon = faShoppingCart;
 
   appUser: AppUser;
   isCollapsed = true;
