@@ -89,7 +89,7 @@ app.post('/webhook', (req, res) => {
 });
 
 
-app.use(express.static('./dist/new-hope'));
+app.use('./dist/new-hope', express.static('./dist/new-hope'));
 
 app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/new-hope/'}),
@@ -553,7 +553,7 @@ FUNCTION TO ADD WHITELIST DOMAIN
 const whitelistDomains = (res) => {
   var messageData = {
           "whitelisted_domains": [
-             "https://myfoodiebot.herokuapp.com" , 
+             "https://new-hope-ecommerce.herokuapp.com" , 
              "https://herokuapp.com"                           
           ]               
   };  
