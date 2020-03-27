@@ -83,47 +83,6 @@ app.post('/webhook', (req, res) => {
 
 });
 
-
-app.use('/uploads', express.static('uploads'))
-
-//webview test
-app.get('/webview/:sender_id',function(req,res){
-    const sender_id = req.params.sender_id;
-    res.render('webview.ejs',{title:"Hello!! from WebView", sender_id:sender_id});
-});
-
-app.post('/webview',upload.single('file'),function(req,res){
-       
-      let name  = req.body.name;
-      let email = req.body.email;
-      let img_url = APP_URL + "/" + req.file.path;
-      let sender = req.body.sender;    
-
-      // bucket.upload(img_url, function(err, file, apiResponse) {
-      //     console.log("UPLOADED TO BUCKET");
-      // }); 
-
-      /*
-      bucket.upload(img_url).then(data => {
-      console.log('upload success');
-      }).catch(err => {
-          console.log('error uploading to storage', err);
-      });
-
-      */  
-      
-      db.collection('booking').add({
-            name: name,
-            email: email,
-            image: img_url
-          }).then(success => {   
-             console.log("DATA SAVED")
-             thankyouReply(sender, name, img_url);    
-          }).catch(error => {
-            console.log(error);
-      });        
-});
-
 //Set up Get Started Button. To run one time
 //eg https://fbstarterbot.herokuapp.com/setgsbutton
 app.get('/setgsbutton',function(req,res){
