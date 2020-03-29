@@ -198,7 +198,9 @@ const handleMessage = (sender_psid, received_message) => {
           break;
         case "webview":
             webviewTest(sender_psid);
-          break;        
+          break;   
+        case "hein":
+            hein(sender_psid);     
         default:
             defaultReply(sender_psid);
         }
@@ -253,6 +255,10 @@ function webviewTest(sender_psid){
 const textReply =(sender_psid) => {
   let response = {"text": "You sent text message"};
   callSend(sender_psid, response);
+}
+
+const hein =(sender_psid) => {
+  let response = {"text": "Hello Hein Min Htet"};
 }
 
 
