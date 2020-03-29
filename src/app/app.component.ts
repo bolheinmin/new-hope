@@ -12,8 +12,7 @@ export class AppComponent {
   constructor(
     private userService: UserService,
     private auth: AuthService,
-    private router: Router
-  ) { 
+    private router: Router) { 
     auth.user$.subscribe(user => {
       if (user) {
         userService.save(user);

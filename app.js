@@ -19,10 +19,10 @@ app.use(body_parser.urlencoded());
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/new-hope'));
 
-// app.get('/*', function(req,res) {
+app.get('/*', function(req,res) {
     
-// res.sendFile(path.join(__dirname+'/dist/new-hope/index.html'));
-// });
+res.sendFile(path.join(__dirname+'/dist/new-hope/index.html'));
+});
 
 
 var firebaseConfig = {

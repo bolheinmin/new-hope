@@ -8,6 +8,9 @@ import { AdminOrdersComponent } from './components/admin-orders/admin-orders.com
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
+
 
 const routes: Routes = [
   { 
@@ -41,6 +44,9 @@ const routes: Routes = [
   ],
   imports: [
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ]
 })
