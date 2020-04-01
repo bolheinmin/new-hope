@@ -40,7 +40,7 @@ const routes: Routes = [
   declarations: [
     AdminProductsComponent,
     AdminOrdersComponent,
-    ProductFormComponent,
+    ProductFormComponent
   ],
   imports: [
     SharedModule,

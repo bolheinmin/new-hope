@@ -7,6 +7,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { take, finalize } from 'rxjs/operators';
 import { Product } from 'shared/models/product';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-form',
@@ -14,6 +16,11 @@ import { AngularFireStorage } from '@angular/fire/storage';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
+
+  titleFormControl = new FormControl('', [Validators.required]);
+  priceFormControl = new FormControl('', [Validators.required]);
+  categoryControl = new FormControl('', Validators.required);
+  selectFormControl = new FormControl('', Validators.required);
 
   imgSrc: string;
   selectedImage: any = null;
@@ -27,7 +34,8 @@ export class ProductFormComponent implements OnInit {
     private categoryService: CategoryService,
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public dialogRef: MatDialogRef<ProductFormComponent>) {
 
      }
 
@@ -79,5 +87,9 @@ export class ProductFormComponent implements OnInit {
     
     this.productService.delete(this.id);
     this.router.navigate(['/admin/products']);
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 }

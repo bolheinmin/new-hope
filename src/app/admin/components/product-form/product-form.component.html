@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-6">
     <form #f="ngForm" (ngSubmit)="save(f.value)">
@@ -52,3 +53,46 @@
   </div>
 </div>
  
+
+<!-- <mat-toolbar>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form #f="ngForm" (ngSubmit)="save(f.value)" class="normal-form">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input [(ngModel)]="product.title" name="title" id="title" type="text" 
+          matInput [formControl]="titleFormControl" placeholder="Product Title">
+          <mat-error *ngIf="titleFormControl.hasError('required')">
+            This field is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Price</mat-label>
+          <input [(ngModel)]="product.price" name="price" id="price" type="number"
+          matInput [formControl]="priceFormControl" placeholder="Product Price">
+          <mat-error *ngIf="priceFormControl.hasError('required')">
+            This field is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Product Category</mat-label>
+          <mat-select [(ngModel)]="product.category" name="category" id="category" [formControl]="categoryControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let c of categories$ | async" [value]="c.id">
+              {{c.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="categoryControl.hasError('required')">Please choose a category</mat-error>
+          <mat-hint>{{categoryControl.value?.sound}}</mat-hint>
+        </mat-form-field>
+        <label for="imageUrl">Image</label>
+        <input [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="file" accept="image/*" class="form-control">
+        <button class="btn btn-primary" [disabled]="f.invalid">Save</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form> -->
