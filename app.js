@@ -1,17 +1,12 @@
+  
+const express = require('express');
 
-// Imports dependencies and set up http server
-const 
-  request = require('request'),
-  express = require('express'),
-  body_parser = require('body-parser'),
-  app = express(); 
+const app = express();
 
+app.use(express.static('./dist/new-hope'));
 
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/new-hope/'}),
+);
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/new-hope'));
-
-app.get('/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/new-hope/index.html'));
-});
+app.listen(process.env.PORT || 8080);
