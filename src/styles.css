@@ -5,6 +5,20 @@
   padding-top: 80px;
 } */
 
+
+*,
+body,
+div,
+span,
+p {
+  font-family: 'Myanmar', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.5em;
+}
+
+body {
+  margin: 0;
+}
+
 h1,
 h2,
 h3 {
@@ -22,49 +36,54 @@ h3 {
 }
 
 
-form.normal-form{
+form.normal-form {
   margin: 10px;
 }
 
-.controles-container{
+.controles-container {
   width: 100%;
-  padding: 5%;    
+  padding: 5%;
 }
 
-.controles-container > * {
+.controles-container>* {
   width: 100%;
-  }
+}
 
 /* mat-table */
-mat-footer-row mat-footer-cell{
+mat-footer-row mat-footer-cell {
   justify-content: center;
   font-style: italic;
 }
 
 /* filter controls */
-.search-div{
+.search-div {
   margin: 10px;
-    }
-    .search-form-field{
-        width: 60%;
-        margin-left: 10px;
-        padding: 5px 10px;
-        background-color: #f5f5f5;
-        border-radius: 5px;
-        }
-        .search-form-field div.mat-form-field-underline {
-            display: none;
-        }
-        .search-form-field div.mat-form-field-infix{
-            border-top: 0px;
-        }
-        .search-form-field div.mat-form-field-wrapper{
-          padding-bottom: 0px;
-      }
-      .search-form-field div.mat-form-field-suffix button{
-          height: 32px;
-          width: 32px;
-      }
+}
+
+.search-form-field {
+  width: 60%;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-underline {
+  display: none;
+}
+
+.search-form-field div.mat-form-field-infix {
+  border-top: 0px;
+}
+
+.search-form-field div.mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+  height: 32px;
+  width: 32px;
+}
 
 /* .navbar-light .navbar-brand {
   color: #c1d62e;
@@ -101,5 +120,5 @@ mat-footer-row mat-footer-cell{
   box-shadow: none;
 } */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

@@ -1,42 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from '../../../shared/models/category';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { finalize, take } from 'rxjs/operators';
-import { Category } from 'shared/models/category';
-import { Product } from 'shared/models/product';
-import { CategoryService } from 'shared/services/category.service';
-import { ProductService } from 'shared/services/product.service';
+import { CategoryService } from '../../../shared/services/category.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-product-form',
-  templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
   imgSrc: string;
   selectedImage: any = null;
 
-  categories$: Observable<Category[]>;
-  product: Product = { id: '', title: '', category: '', price: 0, imageUrl: '' };
+  category: Category = { id: '', name: '', imageUrl: '', mealType:''};
   id: string;
 
   constructor(
     private storage: AngularFireStorage,
     private categoryService: CategoryService,
-    private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.categories$ = this.categoryService.getAllCategories();
-
+  ngOnInit() { 
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id)
-      this.productService.get(this.id).pipe(take(1))
-        .subscribe(p => this.product = p);
+      this.categoryService.get(this.id).pipe(take(1))
+        .subscribe(c => this.category = c);
   }
 
   showPreview(event: any) {
@@ -52,15 +44,15 @@ export class ProductFormComponent implements OnInit {
     }
   }
 
-  save(product) {
-    var filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
+  save(category) {
+    var filePath = `${category.mealType}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
     const fileRef = this.storage.ref(filePath);
     this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe((url) => {
-          product.imageUrl = url;
-          this.productService.create(product);
-          this.router.navigate(['/admin/products']);
+          category.imageUrl = url;
+          this.categoryService.create(category);
+          this.router.navigate(['/admin/categories']);
         })
       })
     ).subscribe();
@@ -76,7 +68,7 @@ export class ProductFormComponent implements OnInit {
   delete() {
     if( !confirm('Are you sure want to delete')) return;
     
-    this.productService.delete(this.id);
-    this.router.navigate(['/admin/products']);
+    this.categoryService.delete(this.id);
+    this.router.navigate(['/admin/categories']);
   }
 }

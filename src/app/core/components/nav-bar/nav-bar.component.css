@@ -1,12 +1,64 @@
+.nav-spacer {
+  flex: 1 1 auto;
+}
+.mat-icon {
+  vertical-align: middle;
+  margin: 0px;
+  color: white;
+}
 .dropdown-toggle {
-    cursor: pointer;
+  cursor: pointer;
+}
+.navbar-nav {
+  margin-right: 34px;
 }
 
 .navbar-brand {
-    color: #92d367;
-    cursor: pointer;
+  padding-left: 20px;
+  color: #92d367;
+  cursor: pointer;
 }
 
-.nav-item a {
-    cursor: pointer !important;
+a {
+  text-decoration: none;
+}
+
+
+.box .fr.footer {
+  flex: 0 1 40px;
+}
+
+.navbar {
+  box-shadow: 0 -.3rem .3rem 0 rgba(224, 224, 224, 0.7) !important;
+  padding: 0;
+}
+
+.navbar .nav-item {
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  color: #9c9c9c;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar .active {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #388E3C;
+}
+
+fa-icon {
+  font-size: 1.5rem;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .navbar .nav-item {
+    padding-bottom: env(safe-area-inset-bottom, 10px);
+  }
 }

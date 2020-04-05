@@ -1,0 +1,44 @@
+<div class="search-div">
+    <button mat-raised-button  routerLink="/admin/categories/new">
+      <mat-icon>add</mat-icon>Create
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" #query (keyup)="filter(query.value)">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="listData"  matSort>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let category">{{category.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="mealType">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Meal Type</mat-header-cell>
+        <mat-cell *matCellDef="let category">{{category.mealType}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let category">
+          <a [routerLink]="['/admin/categories/', category.id]"><mat-icon>launch</mat-icon></a>
+          <!-- <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button> -->
+          <!-- <button mat-icon-button color="warn" (click)="onDelete(element.id)"><mat-icon>delete_outline</mat-icon></button> -->
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          Loading data...
+        </mat-footer-cell>
+      </ng-container>
+      <ng-container matColumnDef="noData">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          No data.
+        </mat-footer-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+  </div>

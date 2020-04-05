@@ -1,4 +1,6 @@
 export class Category {
-    id: String;
-    name: String;
+    id: string;
+    name: string;
+    imageUrl: string;
+    mealType: string;
 }

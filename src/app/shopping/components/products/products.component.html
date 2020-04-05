@@ -1,7 +1,32 @@
-<div class="row">
-  <div class="col-3">
-    <product-filter [category]="category"></product-filter>
+<!-- <div class="row">
+  <div class="col">
+    <div class="row">
+      <ng-container *ngFor="let p of filteredProducts; let i = index">
+        <div class="col">
+          <product-card [product]="p" [shopping-cart]="cart"></product-card>
+        </div>
+        <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
   </div>
+</div> -->
+
+
+<!-- <product-filter></product-filter> -->
+
+<div class="container-fluid">
+  <div class="row"> 
+    <ng-container *ngFor="let p of filteredProducts; let i = index">
+    <div class="col-lg-4 col-sm-12">
+      <product-card [product]="p" [shopping-cart]="cart"></product-card>
+    </div>
+    <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+  </ng-container>
+  </div>
+</div>
+
+<!-- <product-filter [category]="category"></product-filter>
+<div class="row">
   <div class="col">
     <div class="row">
       <ng-container *ngFor="let p of filteredProducts; let i = index">
@@ -12,4 +37,37 @@
       </ng-container>
     </div>
   </div>
-</div>
+</div> -->
+
+
+<!-- <div class="row sm-col-6">
+  <ng-container *ngFor="let p of filteredProducts; let i = index">
+    <div class="col">
+      <product-card [product]="p" [shopping-cart]="cart"></product-card>
+    </div>
+    <div *ngIf="(i + 1) % 5 === 0" class="w-100"></div>
+  </ng-container>
+</div> -->
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <ng-container *ngFor="let p of filteredProducts; let i = index">
+      <div class="col">
+        <product-card [product]="p" [shopping-cart]="cart"></product-card>
+      </div>
+      <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+    </ng-container>
+  </div>
+</div> -->
+
+
+
+<!-- <mat-grid-list cols="3" rowHeight="2:2">
+  <ng-container *ngFor="let p of filteredProducts; let i = index">
+    <mat-grid-tile>
+      <ng-container *ngFor="let p of filteredProducts; let i = index">
+        <product-card [product]="p" [shopping-cart]="cart"></product-card>
+      </ng-container>
+    </mat-grid-tile>
+    <mat-grid-list *ngIf="(i + 1) % 3 === 0" class="w-100"></mat-grid-list>
+</mat-grid-list> -->

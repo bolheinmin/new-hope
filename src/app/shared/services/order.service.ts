@@ -3,6 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFirestoreCollection } from '@angular/fire/firestore/public_api';
 import { Order } from '../models/order';
 import { ShoppingCartService } from './shopping-cart.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,18 @@ export class OrderService {
     let result = await this.ordersCollection.add(orderObj);
     this.cartService.clearCart();
     return result;
+  }
+
+  getAllOrder(): Observable<Order[]> {
+    return this.ordersCollection.snapshotChanges()
+    .pipe(
+      map(orders => orders.map(order => {
+        const id = order.payload.doc.id;
+        const data = order.payload.doc.data();
+
+        return { id, ...data };
+      }))
+    );
   }
 
   getOrders() {

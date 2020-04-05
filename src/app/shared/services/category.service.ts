@@ -16,6 +16,10 @@ export class CategoryService {
     ('name', 'desc'));
    }
 
+   create(category){
+    this.categoriesCollection.add(category);
+  }
+
   getAllCategories(): Observable<Category[]> {
     return this.categoriesCollection.snapshotChanges().pipe(
       map(categories => categories.map(category => {
@@ -25,5 +29,17 @@ export class CategoryService {
         })
       )
     );
+  }
+
+  get(categoryId: string): Observable<Category> {
+    return this.categoriesCollection.doc<Category>(categoryId).valueChanges();
+  }
+
+  update(categoryId: string, category: Category) {
+    this.categoriesCollection.doc<Category>(categoryId).update(category);
+  }
+
+  delete(categoryId) {
+    this.categoriesCollection.doc(categoryId).delete();
   }
 }

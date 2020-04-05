@@ -1,25 +1,32 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { AuthService } from 'shared/services/auth.service';
-import { AppUser } from 'shared/models/app-user';
-import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { Observable } from 'rxjs';
+import { AppUser } from 'shared/models/app-user';
 import { ShoppingCart } from 'shared/models/shopping-cart';
-import { faShoppingCart, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'shared/services/auth.service';
+import { ShoppingCartService } from 'shared/services/shopping-cart.service';
+import { Category } from '../../../shared/models/category';
+import { CategoryService } from './../../../shared/services/category.service';
+
 
 @Component({
-  selector: 'nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class NavBarComponent implements OnInit, OnDestroy {
+export class NavComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
-  cartIcon = faShoppingCart;
-  quesIcon = faQuestionCircle;
+  categories$: Observable<Category[]>;
+  @Input('category') category;
 
+
+  @Input()
+  user: AppUser;
+  @Input('show-actions') showActions = true;
+  
+  isAdmin = true;
   appUser: AppUser;
-  isCollapsed = true;
   shoppingCartItemCount: number;
   cart$: Observable<ShoppingCart>;
 
@@ -28,14 +35,18 @@ export class NavBarComponent implements OnInit, OnDestroy {
   constructor(
     private auth: AuthService,
     private cartService: ShoppingCartService,
+    private categoryService: CategoryService,
     changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
       this.mobileQuery.addListener(this._mobileQueryListener);
-     }
+  }
 
+  
   async ngOnInit() {
+    this.categories$ = this.categoryService.getAllCategories();
+
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
     this.cart$ = await this.cartService.getCart();

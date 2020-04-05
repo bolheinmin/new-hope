@@ -11,6 +11,8 @@ import { ProductFilterComponent } from './components/products/product-filter/pro
 import { ProductsComponent } from './components/products/products.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { MaterialModule } from '../material/material.module';
+import { CoreModule } from '../core/core.module';
 
 const routes: Routes = [
   { 
@@ -52,6 +54,8 @@ const routes: Routes = [
   ],
   imports: [
     SharedModule,
+    CoreModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ]
 })

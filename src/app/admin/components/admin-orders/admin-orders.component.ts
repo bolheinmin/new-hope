@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../../shared/services/order.service';
+import { switchMap } from 'rxjs/operators';
+import { Order } from '../../../shared/models/order';
 
 @Component({
   selector: 'app-admin-orders',
@@ -7,14 +9,15 @@ import { OrderService } from '../../../shared/services/order.service';
   styleUrls: ['./admin-orders.component.css']
 })
 export class AdminOrdersComponent implements OnInit {
+
   orders$;
+
   constructor(private orderService: OrderService) {
-    this.orders$ = orderService.getOrders();
+    this.orders$ = orderService.getAllOrder();
    }
 
-  ngOnInit() {
-  }
-pri(order) {
-  console.log(order.payload.doc.data().shipping.name);
-}
+  ngOnInit() { }
+// pri(order) {
+//   console.log(order.payload.doc.data().shipping.name);
+// }
 }

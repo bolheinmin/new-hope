@@ -10,6 +10,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { CategoryComponent } from './components/category/category.component';
+import { AdminCategoriesComponent } from './components/admin-categories/admin-categories.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,21 @@ const routes: Routes = [
   { 
     path: 'admin/products/:id', 
     component: ProductFormComponent,
+    canActivate: [AuthGuard, AdminAuthGuard]
+  },
+  { 
+    path: 'admin/categories/new', 
+    component: CategoryComponent,
+    canActivate: [AuthGuard, AdminAuthGuard]
+  },
+  { 
+    path: 'admin/categories/:id', 
+    component: CategoryComponent,
+    canActivate: [AuthGuard, AdminAuthGuard]
+  },
+  { 
+    path: 'admin/categories', 
+    component: AdminCategoriesComponent,
     canActivate: [AuthGuard, AdminAuthGuard]
   },
   { 
@@ -39,8 +56,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AdminProductsComponent,
+    AdminCategoriesComponent,
     AdminOrdersComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    CategoryComponent
   ],
   imports: [
     SharedModule,

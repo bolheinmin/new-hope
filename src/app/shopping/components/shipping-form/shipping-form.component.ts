@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 export class ShippingFormComponent implements OnInit, OnDestroy {
 
   @Input('cart') cart: ShoppingCart;
-  shipping: Shipping = { id: '', name: '', addressLine1: '', addressLine2: '', city: '' };
+  shipping: Shipping = { name: '', addressLine1: '', addressLine2: '', city: '' };
   private userId: string;
   userSubscription: Subscription;
 
