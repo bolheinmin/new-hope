@@ -1,144 +1,58 @@
-<!-- <div class="sticky-top">
-  <div class="list-group">
-      <a
-        class="list-group-item list-group-item-action"
-        [class.active]="!category"
-        routerLink="/"
-        >All Categories</a>
-      <a 
-        *ngFor="let c of categories$ | async" 
-        routerLink="/"
-        [queryParams]="{ category: c.id }"
-        class="list-group-item list-group-item-action"
-        [class.active]="category === c.id"
-        >
-        {{ c.name }}
-      </a>
-    </div>
-</div> -->
-
-<!-- <div class="row">
-  <ng-container *ngFor="let c of categories$ | async; let i = index">
-    <div class="col-sm-6">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" [src]="c.imageUrl" alt="{{ c.name }}">
-        <div class="card-body">
-          <h5 class="card-title">{{ c.name }}</h5>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-secondary btn-block">View More</button>
-        </div>
-      </div>
-    </div>
-    <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-  </ng-container>
-</div> -->
-
-<!-- <div class="row row-cols-1 row-cols-md-4">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="container-fluid">
-  <product-filter [category]="category"></product-filter>
-  <div class="row"> 
-    <ng-container *ngFor="let p of filteredProducts; let i = index">
-    <div class="col-lg-4 col-sm-12">
-      <product-card [product]="p" [shopping-cart]="cart"></product-card>
-    </div>
-    <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-  </ng-container>
-  </div>
-</div> -->
+ <!-- <div *ngFor="let m of meals$ | async; let i = index" class="card mb-3" style="max-width: 540px;">
+   <div class="row no-gutters">
+     <div class="col-md-4">
+       <img [src]="m.imageUrl" alt="{{ m.name }}" class="card-img">
+     </div>
+     <div class="col-md-8">
+       <div class="card-body">
+         <h5 class="card-title">{{ m.name }}</h5>
+         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+           content. This content is a little bit longer.</p>
+         <a routerLink="/products" [queryParams]="{ meal: m.id }">
+           View More</a>
+       </div>
+     </div>
+   </div>
+ </div> -->
 
 
-<mat-card>
-  <mat-card-content>
-    <mat-form-field class="full-width">
-      <input
-        matInput
-        (keyup)="applyFilter($event.target.value)"
-        placeholder="Filter"
-      />
-    </mat-form-field>
-    <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!--- Note that these columns can be defined in any order.
-                          The actual rendered columns are set as a property on the row definition" -->
+ <div class="row">
+   <div class="col-sm-12 col-md-4" *ngFor="let m of meals$ | async;">
+     <a class="img-zoom" tabindex="-1" [routerLink]="['/meals/', m.id]" [queryParams]="{ meal: m.name }">
+       <div class="card shadow mt-4 mb-4">
+         <div class="img-wrap">
+           <img [src]="m.imageUrl" alt="{{ m.name }}" class="card-img-top">
+         </div>
+         <div class="card-body text-decoration-none">
+           <h6 class="card-text text-dark pt-1 pb-2 text-decoration-none"><strong>{{ m.name }}</strong></h6>
+           <h6 class="card-text text-success pb-1">Meat: {{ m.meat }}</h6>
+         </div>
+       </div>
+     </a>
+   </div>
+ </div>
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="imageUrl">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let category">
-          <img [src]="category.imageUrl" class="product-listing-image" />
-        </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let category">{{ category.name }}</td>
-      </ng-container>
-
-       <!-- Meal Type Column -->
-       <ng-container matColumnDef="mealType">
-        <th mat-header-cell mat-sort-header *matHeaderCellDef>Meal Type</th>
-        <td mat-cell *matCellDef="let category">{{ category.mealType }}</td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef>Action</th>
-        <td mat-cell *matCellDef="let category">
-          <button mat-raised-button color="primary"
-          routerLink="/products"
-          [queryParams]="{ category: category.id }">
-            <mat-icon>add_shopping_cart</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-
-    <mat-paginator
-      [pageSizeOptions]="[3, 6, 9]"
-      showFirstLastButtons
-    ></mat-paginator>
-    <mat-spinner *ngIf="loading"></mat-spinner>
-  </mat-card-content>
-</mat-card>
+ <!-- <div class="row">
+   <a href="/web/view?id=53" class="col-sm-12 col-md-6">
+     <div class="card shadow mt-4 mb-4">
+       <img src="https://i.ibb.co/6yLzRTN/image.png" class="card-img-top">
+       <div class="card-body text-decoration-none">
+         <h6 class="card-text text-dark pt-1 pb-2 text-decoration-none"><strong>&#8203;COVID-19 ရောဂါ
+             စောင့်ကြပ်ကြည့်ရှုမှုနှင့်ပတ်သက်၍ သတင်းထုတ်ပြန်ခြင်း (၁၄-၄-၂၀၂၀) ရက်နေ့၊ ည (၈:၀၀) နာရီ</strong></h6>
+         <h6 class="card-text text-success pb-1">ကျန်းမာရေးနှင့်အားကစားဝန်ကြီးဌာန</h6>
+       </div>
+     </div>
+   </a>
+   <a href="/web/view?id=52" class="col-sm-12 col-md-6">
+     <div class="card shadow mt-4 mb-4">
+       <img
+         src="https://www.mohs.gov.mm/ckfinder/connector?command=Proxy&amp;lang=en&amp;type=Main&amp;currentFolder=%2FNews%2FNews_2020%2FApril_2020(A)%2F&amp;hash=a6a1c319429b7abc0a8e21dc137ab33930842cf5&amp;fileName=14.4.20_4-00pm.jpg"
+         class="card-img-top">
+       <div class="card-body text-decoration-none">
+         <h6 class="card-text text-dark pt-1 pb-2 text-decoration-none"><strong>COVID-19 ရောဂါ
+             စောင့်ကြပ်ကြည့်ရှုမှုနှင့်ပတ်သက်၍ သတင်းထုတ်ပြန်ခြင်း (14-4-2020, 4:00 PM)</strong></h6>
+         <h6 class="card-text text-success pb-1">ကျန်းမာရေးနှင့်အားကစားဝန်ကြီးဌာန</h6>
+       </div>
+     </div>
+   </a>
+ </div> -->

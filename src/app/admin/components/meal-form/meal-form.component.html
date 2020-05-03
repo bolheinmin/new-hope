@@ -1,0 +1,36 @@
+<div class="row d-flex justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input #name="ngModel" [(ngModel)]="meal.name" name="name" id="name" type="text" class="form-control"
+              required>
+            <div class="alert alert-danger" *ngIf="name.invalid && (name.touched || name.dirty)">
+              Name is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="meat">Meat</label>
+            <select #meat="ngModel" [(ngModel)]="meal.meat" name="meat" id="meat" class="form-control" required>
+              <option value=""></option>
+              <option *ngFor="let m of meat$ | async" [value]="m.id">
+                {{ m.name }}
+              </option>
+            </select>
+            <div class="alert alert-danger" *ngIf="meat.invalid && (meat.touched || meat.dirty)">
+              meat is required!
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">Image URL</label>
+            <input #imageUrl="ngModel" [(ngModel)]="meal.imageUrl" name="imageUrl" id="imageUrl" type="file"
+              accept="image/*" class="form-control" (change)="showPreview($event)">
+          </div>
+          <button class="btn btn-primary" [disabled]="f.invalid">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

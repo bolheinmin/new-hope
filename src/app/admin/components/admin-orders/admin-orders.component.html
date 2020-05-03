@@ -6,15 +6,18 @@
       <th>Date</th>
       <th></th>
     </tr>
-  </thead> 
+  </thead>
   <tbody>
     <tr *ngFor="let order of orders$ | async">
-       
+
       <td>{{ order.shipping.name }}</td>
-      <td>{{ order.datePlaced | date}}</td>
+      <td>{{ order.datePlaced.toDate() | date:'yyyy/MM/dd h:mm:ss a'}}</td>
       <td>
-        <a [routerLink]="['/view-order/',order.payload.doc.id]">View</a>
+        <a [routerLink]="['/admin/view-orders',order.id]">View</a>
       </td>
     </tr>
-  </tbody> 
+  </tbody>
 </table>
+
+<!-- <td>{{ order.items[0].product.title }}</td>
+<td>{{ order.items[1].totalPrice }}</td> -->

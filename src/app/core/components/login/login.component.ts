@@ -3,12 +3,17 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service';
 import { UserService } from '../../../shared/services/user.service';
 import { Router } from '@angular/router';
+import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  fbIcon = faFacebook;
+  googleIcon = faGoogle;
 
   constructor(
     private auth: AuthService,

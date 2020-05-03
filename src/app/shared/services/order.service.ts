@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFirestoreCollection } from '@angular/fire/firestore/public_api';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Order } from '../models/order';
 import { ShoppingCartService } from './shopping-cart.service';
 import { Observable } from 'rxjs';
@@ -44,11 +44,17 @@ export class OrderService {
     );
   }
 
-  getOrders() {
-    return this.ordersCollection.snapshotChanges();
-  }
+  get(orderId: string): Observable<Order> {
+		return this.ordersCollection.doc<Order>(orderId).valueChanges();
+	}
+
+  // getOrders() {
+  //   return this.ordersCollection.snapshotChanges();
+  // }
 
   getOrdersByUser(userId: string) {
     return this.afs.collection('/orders', ref => ref.where('userId', '==', userId)).snapshotChanges();
   }
+
+
 }

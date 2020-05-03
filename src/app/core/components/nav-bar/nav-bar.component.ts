@@ -5,7 +5,7 @@ import { AppUser } from 'shared/models/app-user';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 import { Observable } from 'rxjs';
 import { ShoppingCart } from 'shared/models/shopping-cart';
-import { faShoppingCart, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faShoppingCart, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'nav-bar',
@@ -15,6 +15,7 @@ import { faShoppingCart, faQuestionCircle} from '@fortawesome/free-solid-svg-ico
 export class NavBarComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
+  homeIcon = faHome;
   cartIcon = faShoppingCart;
   quesIcon = faQuestionCircle;
 

@@ -1,73 +1,39 @@
-<!-- <div class="row">
-  <div class="col">
+<!-- <figure class="card card-product">
+  <div class="img-wrap">
+    <img class="card-img-top" [src]="meals.imageUrl" alt="">
+  </div>
+  <figcaption class="info-wrap">
+    <h5 class="title text-dots">{{ meals.description }}</h5>
+  </figcaption>
+</figure>
+<h5>{{ meals.ingredients }}</h5> -->
+
+<section class="meal-section">
+    <div class="meal-img"
+    [style.backgroundImage]="'url(' + meals.imageUrl + ')'">
+    </div>
+</section>
+
+<section class="event-info-section">
+  <div class="container max-w-820">
     <div class="row">
-      <ng-container *ngFor="let p of filteredProducts; let i = index">
-        <div class="col">
-          <product-card [product]="p" [shopping-cart]="cart"></product-card>
-        </div>
-        <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-      </ng-container>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- <product-filter></product-filter> -->
-
-<div class="container-fluid">
-  <div class="row"> 
-    <ng-container *ngFor="let p of filteredProducts; let i = index">
-    <div class="col-lg-4 col-sm-12">
-      <product-card [product]="p" [shopping-cart]="cart"></product-card>
-    </div>
-    <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
-  </ng-container>
-  </div>
-</div>
-
-<!-- <product-filter [category]="category"></product-filter>
-<div class="row">
-  <div class="col">
-    <div class="row">
-      <ng-container *ngFor="let p of filteredProducts; let i = index">
-        <div class="col">
-          <product-card [product]="p" [shopping-cart]="cart"></product-card>
-        </div>
-        <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
-      </ng-container>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- <div class="row sm-col-6">
-  <ng-container *ngFor="let p of filteredProducts; let i = index">
-    <div class="col">
-      <product-card [product]="p" [shopping-cart]="cart"></product-card>
-    </div>
-    <div *ngIf="(i + 1) % 5 === 0" class="w-100"></div>
-  </ng-container>
-</div> -->
-
-<!-- <div class="container-fluid">
-  <div class="row">
-    <ng-container *ngFor="let p of filteredProducts; let i = index">
-      <div class="col">
-        <product-card [product]="p" [shopping-cart]="cart"></product-card>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="blue">{{ meals.name }}</h1>
+        <h4>{{ meals.description }}</h4>
       </div>
-      <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+    </div>
+  </div>
+</section>
+
+<h1 class="mt-4"><strong>Ingredients</strong></h1>
+
+<div class="container-fluid" style="margin-bottom: 50px;">
+  <div class="row">
+    <ng-container *ngFor="let in of filteredIngredients; let i = index">
+      <div class="col-md-3">
+        <ingredient-card [ingredient]="in" [shopping-cart]="cart"></ingredient-card>
+      </div>
+      <div *ngIf="(i + 1) % 4 === 0" class="w-100"></div>
     </ng-container>
   </div>
-</div> -->
-
-
-
-<!-- <mat-grid-list cols="3" rowHeight="2:2">
-  <ng-container *ngFor="let p of filteredProducts; let i = index">
-    <mat-grid-tile>
-      <ng-container *ngFor="let p of filteredProducts; let i = index">
-        <product-card [product]="p" [shopping-cart]="cart"></product-card>
-      </ng-container>
-    </mat-grid-tile>
-    <mat-grid-list *ngIf="(i + 1) % 3 === 0" class="w-100"></mat-grid-list>
-</mat-grid-list> -->
+</div>

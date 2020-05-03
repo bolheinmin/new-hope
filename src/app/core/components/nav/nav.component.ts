@@ -5,20 +5,20 @@ import { AppUser } from 'shared/models/app-user';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 import { AuthService } from 'shared/services/auth.service';
 import { ShoppingCartService } from 'shared/services/shopping-cart.service';
-import { Category } from '../../../shared/models/category';
-import { CategoryService } from './../../../shared/services/category.service';
+import { Meal } from '../../../shared/models/meal';
+import { MealService } from '../../../shared/services/meal.service';
 
 
 @Component({
-  selector: 'app-nav',
+  selector: 'side-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
-  categories$: Observable<Category[]>;
-  @Input('category') category;
+  meals$: Observable<Meal[]>;
+  @Input('meal') meal;
 
 
   @Input()
@@ -35,7 +35,7 @@ export class NavComponent implements OnInit, OnDestroy {
   constructor(
     private auth: AuthService,
     private cartService: ShoppingCartService,
-    private categoryService: CategoryService,
+    private mealService: MealService,
     changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -45,7 +45,7 @@ export class NavComponent implements OnInit, OnDestroy {
 
   
   async ngOnInit() {
-    this.categories$ = this.categoryService.getAllCategories();
+    this.meals$ = this.mealService.getAllMeals();
 
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 

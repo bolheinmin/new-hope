@@ -1,0 +1,45 @@
+<!-- <div *ngIf="ingredient.title" class="card">
+  <img *ngIf="ingredient.imageUrl" class="card-img-top" [src]="ingredient.imageUrl" alt="{{ ingredient.title }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ ingredient.title }}</h5>
+    <p class="card-text">{{ ingredient.price | currency: 'USD':'symbol' }}</p>
+  </div>
+  <div class="card-footer" *ngIf="showActions && cart">
+    <button *ngIf="cart.getQuantity(ingredient) === 0; else updateQty" (click)="addToCart()"
+      class="btn btn-primary btn-block">Add to Cart</button>
+    <ng-template #updateQty>
+      <ingredient-quantity [ingredient]="ingredient" [shopping-cart]="cart"></ingredient-quantity>
+    </ng-template>
+  </div>
+</div> -->
+
+
+<figure *ngIf="ingredient.title" class="card card-product">
+  <div class="img-wrap">
+    <img *ngIf="ingredient.imageUrl" class="card-img-top" [src]="ingredient.imageUrl" alt="{{ ingredient.title }}">
+  </div>
+  <figcaption class="info-wrap">
+    <h4 class="title">{{ ingredient.title }}</h4>
+  </figcaption>
+  <div class="bottom-wrap" *ngIf="showActions && cart">
+    <button *ngIf="cart.getQuantity(ingredient) === 0; else updateQty" (click)="addToCart()"
+      class="btn btn-primary btn-sm float-right"><i class="fas fa-cart-plus"></i>Add to Cart</button>
+    <div class="price-wrap h5">
+      <span class="price-new">{{ ingredient.price }} Ks</span>
+    </div>
+    <ng-template #updateQty>
+      <ingredient-quantity [ingredient]="ingredient" [shopping-cart]="cart"></ingredient-quantity>
+    </ng-template>
+  </div>
+  <!-- <div class="action-wrap" *ngIf="showActions && cart">
+    <button *ngIf="cart.getQuantity(ingredient) === 0; else updateQty" (click)="addToCart()"
+      class="btn btn-primary btn-sm float-right"><i class="fas fa-cart-plus"></i>Add to Cart</button>
+    <div class="price-wrap h5">
+      <span class="price-new">{{ ingredient.price }} MMK</span>
+    </div>
+    <ng-template #updateQty>
+      <ingredient-quantity [ingredient]="ingredient" [shopping-cart]="cart"></ingredient-quantity>
+    </ng-template>
+  </div> -->
+
+</figure>

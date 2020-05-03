@@ -4,7 +4,7 @@ export class Order {
 	items: any[];
 
 	constructor(public userId: string, public shipping: any, public cart: ShoppingCart) {
-		this.dateplaced = new Date();
+		this.dateplaced = new Date().getTime();
 
 		this.items = cart.items.map((item) => {
 			return {

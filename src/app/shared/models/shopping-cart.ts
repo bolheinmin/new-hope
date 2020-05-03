@@ -1,10 +1,10 @@
 import { ShoppingCartItem } from './shopping-cart-item';
-import { Product } from './product';
+import { Ingredient } from './ingredient';
 
 export class ShoppingCart {
    items: ShoppingCartItem[] = [];
 
-    constructor(private itemsMap: { [productId: string]: ShoppingCartItem }) {
+    constructor(private itemsMap: { [ingredientId: string]: ShoppingCartItem }) {
         this.itemsMap = itemsMap || {};
 
         for(let index in itemsMap) {
@@ -16,10 +16,10 @@ export class ShoppingCart {
         }
     }
 
-    getQuantity(product: Product) {
+    getQuantity(ingredient: Ingredient) {
         let qty = 0;
         this.items.forEach(item => {
-            if(item.id === product.id) {
+            if(item.id === ingredient.id) {
                 qty = item.quantity;
                 return qty;
             }

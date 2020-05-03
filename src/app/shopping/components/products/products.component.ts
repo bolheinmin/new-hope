@@ -1,43 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../shared/services/product.service';
-import { Product } from '../../../shared/models/product';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
+import { Ingredient } from 'shared/models/ingredient';
+
+import { IngredientService } from '../../../shared/services/ingredient.service';
 import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
+import { Meal } from '../../../shared/models/meal';
+import { MealService } from '../../../shared/services/meal.service';
 
 @Component({
-  selector: 'app-products',
-  templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+	selector: 'app-products',
+	templateUrl: './products.component.html',
+	styleUrls: [ './products.component.css' ]
 })
 export class ProductsComponent implements OnInit {
+	meals: Meal = { id: '', name: '', description: '', ingredients: '', meat: '', imageUrl: '' };
+	ingredients: Ingredient[] = [];
+	filteredIngredients: Ingredient[] = [];
+	meal: string;
+	cart;
+	id: string;
 
-  products: Product[]= [];
-  filteredProducts: Product[]= [];
-  category: string;
-  cart;
+	constructor(
+		private route: ActivatedRoute,
+		private ingredientService: IngredientService,
+		private cartService: ShoppingCartService,
+		private mealService: MealService
+	) {}
 
-  constructor(
-    private route: ActivatedRoute,
-    private productService: ProductService,
-    private cartService: ShoppingCartService) { }
+	async ngOnInit() {
+		this.cart = (await this.cartService.getCart()).subscribe((cart) => (this.cart = cart));
 
-  async ngOnInit() {
+		this.id = this.route.snapshot.paramMap.get('id');
+		if (this.id) this.mealService.get(this.id).pipe(take(1)).subscribe((m) => (this.meals = m));
 
-    this.cart = (await this.cartService.getCart()).subscribe(cart => this.cart = cart);
+		this.ingredientService
+			.getAllIngredients()
+			.pipe(
+				switchMap((ingredients) => {
+					this.ingredients = ingredients;
+					return this.route.queryParamMap;
+				})
+			)
+			.subscribe((params) => {
+				this.meal = params.get('meal');
 
-    this.productService.getAllProducts()
-      .pipe(
-        switchMap(products => {
-          this.products = products;
-          return this.route.queryParamMap;
-        })
-      )
-      .subscribe(params => {
-        this.category = params.get('category');
-
-        this.filteredProducts =(this.category) ?
-        this.products.filter(p => p.category === this.category): this.products;
-      });
-  }
+				this.filteredIngredients = this.meal
+					? this.ingredients.filter((i) => i.meal === this.meal)
+					: this.ingredients;
+			});
+	}
 }

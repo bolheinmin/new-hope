@@ -1,48 +1,61 @@
-<nav class="navbar navbar-expand navbar-light bg-light mb-3 fixed-top">
-  <a class="navbar-brand" routerLink="/">New Hope</a>
-  <a class="nav-link" routerLinkActive="active" routerLink="/shopping-cart">
-    <fa-icon [icon]="cartIcon"></fa-icon>
-    <span class="badge badge-pill badge-warning" *ngIf="cart$ | async as cart">
-      {{ cart.totalItemsCount }}
-    </span>
-  </a>
-  <span class="nav-spacer"></span>
-  <ul class="navbar-nav">
-    <ng-template #unknownUser>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/login">Login</a>
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-white mb-3 fixed-top">
+  <div class="container">
+    <ul class="navbar-nav">
+      <ng-template #unknownUser>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/login">
+            <i class="far fa-user">
+              <span>
+                Login
+              </span>
+            </i></a>
+        </li>
+      </ng-template>
+      <li class="nav-item" *ngIf="appUser as user; else unknownUser">
+        <i class="far fa-user">
+          <span>
+            {{ user.name }}
+          </span>
+        </i>
       </li>
-    </ng-template>
-    <li class="nav-item" ngbDropdown *ngIf="appUser as user; else unknownUser">
-      <a class="nav-link dropdown-toggle" id="navbarDropdown" ngbDropdownToggle>
-        {{ user.name }}
-      </a>
-      <div ngbDropdownMenu>
-        <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
-        <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
-        <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
-        <a class="dropdown-item" routerLink="/admin/categories">Manage Categories</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" (click)="logout()">Log Out</a>
-      </div>
-    </li>
-  </ul>
+    </ul>
+    <a class="navbar-brand" routerLink="/">New Hope</a>
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/shopping-cart">
+          <i class="fas fa-shopping-cart" style="color: #e2e2e2;">
+            <span class="badge badge-success" *ngIf="cart$ | async as cart">
+              {{ cart.totalItemsCount }}
+            </span>
+          </i>
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+
+
 
 <div class="fr footer">
   <nav class="navbar fixed-bottom navbar-light bg-white nav-justified">
-    <a id="nav-stats" class="nav-item" href="#"><i class="fas fa-chart-line"></i>
-      <div class="text-center">အချက်အလက်</div>
+    <a class="nav-hover nav-item" routerLinkActive="active"  routerLink="/">
+      <i class="fas fa-home"></i>
+      <div class="text-center">Home</div>
     </a>
-    <a id="nav-phone" class="nav-item " href="#"><i class="fas fa-phone"></i>
-      <div class="text-center">ဖုန်းနံပါတ်</div>
+    <a class="nav-hover nav-item" href="#">
+      <!-- <i class="fas fa-shopping-bag"></i> -->
+      <i class="fas fa-list-ul"></i>
+      <div class="text-center">Meals</div>
     </a>
-    <a id="nav-faq" class="nav-item " routerLinkActive="active" routerLink="/home">
-      <fa-icon [icon]="quesIcon"></fa-icon>
-      <div class="text-center">အမေးအဖြေ</div>
-    </a>
-    <a id="nav-news" class="nav-item " href="#"><i class="fas fa-newspaper"></i>
-      <div class="text-center">သတင်း</div>
+    <!-- <a class="nav-hover nav-item" routerLinkActive="active">
+      <i class="fas fa-truck-pickup"></i>
+      <i class="fas fa-truck"></i>
+      <div class="text-center">My Orders</div>
+    </a> -->
+    <a class="nav-hover nav-item" routerLinkActive="active"  routerLink="/home">
+      <i class="fas fa-ellipsis-h"></i>
+      <div class="text-center">Other</div>
     </a>
   </nav>
 </div>

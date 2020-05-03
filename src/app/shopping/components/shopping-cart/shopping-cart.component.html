@@ -5,14 +5,13 @@
     <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-light">Clear Shopping Cart</button>
   </p>
   
-
   <div class="row">
     <div class="col-10">
       <table class="table">
         <thead>
           <tr>
             <th></th>
-            <th>Product</th>
+            <th>Ingredient</th>
             <th class="text-center" style="width: 230px;">Quantity</th>
             <th class="text-right" style="width: 200px;">Price</th>
           </tr>
@@ -24,7 +23,7 @@
             </td>
             <td>{{ item.title }}</td>
             <td>
-              <product-quantity [product]="item" [shopping-cart]="cart"></product-quantity>
+              <ingredient-quantity [ingredient]="item" [shopping-cart]="cart"></ingredient-quantity>
             </td>
             <td class="text-right">{{ item.totalPrice | currency:'USD':'symbol' }}</td>
           </tr>
@@ -39,5 +38,4 @@
       <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a>
     </div>
   </div>
-
 </ng-container>
