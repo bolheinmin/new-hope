@@ -73,8 +73,6 @@ h6 {
   margin: 0;
   font-weight: 600;
   text-transform: uppercase;
-  font-family: var(--font-family);
-  line-height: var(--line-height);
 }
 
 .h1,

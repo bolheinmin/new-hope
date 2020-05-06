@@ -1,16 +1,16 @@
-<h1>Orders</h1>
+<h1>မှာယူမှုမှတ်တမ်းများ</h1>
 <table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
-      <th>Date</th>
+      <th>အမည်</th>
+      <th>ရက်စွဲ</th>
       <th></th>
     </tr>
   </thead> 
   <tbody>
     <tr *ngFor="let order of orders$ | async">
       <td>{{ order.payload.doc.data().shipping.name }}</td>
-      <td>{{ order.payload.doc.data().datePlaced.seconds * 1000 | date:'MM-dd-yyyy'}}</td>
+      <td>{{ order.payload.doc.data().datePlaced.seconds * 1000 | date:'MM-dd-yyyy' }}</td>
       <td>
         <a [routerLink]="['/my/orders/',order.payload.doc.id]">View</a>
       </td>

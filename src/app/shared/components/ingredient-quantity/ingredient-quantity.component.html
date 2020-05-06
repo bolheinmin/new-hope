@@ -1,11 +1,11 @@
-<div class="row no-gutters float-right">
-  <div class="col-2">
-    <button (click)="removeFromCart()" class="btn btn-primary btn-sm float-right">-</button>
+<div class="row no-gutters">
+  <div class="col-4">
+    <button (click)="removeFromCart()" style="border-radius: 20px;" class="btn btn-success btn-lg float-right">-</button>
   </div>
   <div class="col d-flex justify-content-center align-items-center">
     {{ cart.getQuantity(ingredient) }}
   </div>
-  <div class="col-2">
-    <button (click)="addToCart()" class="btn btn-primary btn-sm float-left">+</button>
+  <div class="col-4">
+    <button (click)="addToCart()" style="border-radius: 20px;" class="btn btn-success btn-lg float-left">+</button>
   </div>
 </div>

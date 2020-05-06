@@ -1,6 +1,6 @@
 export class Shipping {
     name: string;
-    addressLine1: string;
-    addressLine2: string;
+    phNumber: string;
+    address: string;
     city: string;
 }

@@ -1,20 +1,22 @@
 <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Order Summary</h5>
-      <p class="card-text">You have {{ cart.totalItemsCount }} items in your shopping cart.</p>
+      <h5 class="card-title">အော်ဒါအနှစ်ချုပ်</h5>
+      <p class="card-text">သင့်စျေးခြင်းတောင်းထဲတွင်ပစ္စည်း {{ cart.totalItemsCount }} ခုရှိသည်။</p>
       <ul class="list-group list-group-flush">
         <li *ngFor="let item of cart.items" class="list-group-item">
-          {{ item.quantity }} x {{ item.title }}
+          {{ item.title }} x {{ item.quantity }}
           <div class="float-right">
-            {{ item.totalPrice | currency:'USD':'symbol' }}
+            {{ item.totalPrice }} Ks
           </div>
         </li>
         <li class="list-group-item font-weight-bold">
           Total
           <div class="float-right">
-            {{ cart.totalPrice | currency:'USD':'symbol' }}
+            {{ cart.totalPrice }} Ks
           </div>
         </li>
       </ul>
     </div>
   </div>
+
+  

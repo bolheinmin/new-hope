@@ -1,0 +1,47 @@
+<!-- <h6><strong>အခြား</strong></h6>
+<div class="list-group">
+  <a routerLink="/admin/orders" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    About New Hope
+      <i class="fas fa-chevron-right"></i>
+  </a>
+  <a routerLink="/admin/ingredients" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    New Hop's Location
+      <i class="fas fa-chevron-right"></i>
+  </a>
+  <a routerLink="/admin/meals" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    Manage Meals
+      <i class="fas fa-chevron-right"></i>
+  </a>
+  <a (click)="logout()" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    Log Out
+      <i class="fas fa-chevron-right"></i>
+  </a>
+</div> -->
+
+<h6><strong>အခြား</strong></h6>
+<div class="list-group">
+  <a routerLink="/my/orders" class="list-group-item list-group-item-action list-group-item-light">
+    <div class="md-v-line"></div><i class="fas fa-list-ul mr-3"></i>မှာယူမှုမှတ်တမ်းများ
+    <i class="fas fa-chevron-right float-right"></i>
+  </a>
+  <a routerLink="/shopping-cart" class="list-group-item list-group-item-action list-group-item-light">
+    <div class="md-v-line"></div><i class="fas fa-shopping-cart mr-3"></i>စျေးခြင်းတောင်း
+    <span class="badge-pill badge-success" *ngIf="cart$ | async as cart">
+      {{ cart.totalItemsCount }}
+    </span>
+    <i class="fas fa-chevron-right float-right"></i>
+  </a>
+
+  <a routerLink="/helps" class="list-group-item list-group-item-action list-group-item-light">
+    <div class="md-v-line"></div><i class="fas fa-question mr-3"></i>အကူအညီများ
+    <i class="fas fa-chevron-right float-right"></i>
+  </a>
+  <a routerLink="/helps" class="list-group-item list-group-item-action list-group-item-light">
+    <div class="md-v-line"></div><i class="fas fa-info mr-3"></i>New Hope အကြောင်း
+    <i class="fas fa-chevron-right float-right"></i>
+  </a>
+  <a routerLink="/helps" class="list-group-item list-group-item-action list-group-item-light">
+    <div class="md-v-line"></div><i class="fas fa-sign-out-alt mr-3"></i>Account မှထွက်မည်
+    <i class="fas fa-chevron-right float-right"></i>
+  </a>
+</div>

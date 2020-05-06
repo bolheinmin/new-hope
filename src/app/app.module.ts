@@ -11,19 +11,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from 'environments/environment';
+import { AuthGuard } from 'shared/services/auth-guard.service';
 
 import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './core/components/home/home.component';
+import { AdminPanel } from './core/components/admin-panel/admin-panel.component';
+import { HelpsComponent } from './core/components/helps/helps.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { OtherComponent } from './core/components/other/other.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
+import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
 import { ProductFilterComponent } from './shopping/components/products/product-filter/product-filter.component';
 import { ShoppingModule } from './shopping/shopping.module';
-import { MeatFilterComponent } from './shopping/components/meats/meat-filter/meat-filter.component';
-import { MeatsComponent } from './shopping/components/meats/meats.component';
 
 const routes: Routes = [
 	{
@@ -31,8 +33,22 @@ const routes: Routes = [
 		component: ProductFilterComponent
 	},
 	{
-		path: 'home',
-		component: HomeComponent
+		path: 'admin/panel',
+		component: AdminPanel,
+		canActivate: [ AuthGuard ]
+	},
+	{
+		path: 'helps',
+		component: HelpsComponent
+	},
+	{
+		path: 'other',
+		component: OtherComponent
+	},
+	{
+		path: 'my/orders',
+		component: MyOrdersComponent,
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'login',

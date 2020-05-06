@@ -19,14 +19,14 @@
     <img *ngIf="ingredient.imageUrl" class="card-img-top" [src]="ingredient.imageUrl" alt="{{ ingredient.title }}">
   </div>
   <figcaption class="info-wrap">
-    <h4 class="title">{{ ingredient.title }}</h4>
+    <h3 class="title">{{ ingredient.title }}</h3>
   </figcaption>
-  <div class="bottom-wrap" *ngIf="showActions && cart">
+  <div class="text-center h4">
+    <span class="price-new">{{ ingredient.price }} Ks</span>
+  </div>
+  <div class="bottom-wrap text-center" *ngIf="showActions && cart">
     <button *ngIf="cart.getQuantity(ingredient) === 0; else updateQty" (click)="addToCart()"
-      class="btn btn-primary btn-sm float-right"><i class="fas fa-cart-plus"></i>Add to Cart</button>
-    <div class="price-wrap h5">
-      <span class="price-new">{{ ingredient.price }} Ks</span>
-    </div>
+    style="border-radius: 20px;" class="btn btn-success btn-lg"><i class="fas fa-cart-plus"></i>ခြင်းထဲထည့်</button>
     <ng-template #updateQty>
       <ingredient-quantity [ingredient]="ingredient" [shopping-cart]="cart"></ingredient-quantity>
     </ng-template>

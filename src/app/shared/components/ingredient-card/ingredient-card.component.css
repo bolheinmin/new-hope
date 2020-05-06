@@ -30,16 +30,15 @@
   visibility: hidden;
 }
 
-.card-product .price-new,
-.card-product .price {
-  margin-right: 5px;
+.card-product .price-new {
+  color:#2CB54B;
 }
 
 .card-product .img-wrap {
   border-radius: 3px 3px 0 0;
   overflow: hidden;
   position: relative;
-  height: 280px;
+  height: 250px;
   text-align: center;
 }
 
@@ -50,6 +49,7 @@
 }
 
 .card-product .info-wrap {
+  text-align: center;
   overflow: hidden;
   padding: 5px;
   border-top: 1px solid #eee;
@@ -57,7 +57,7 @@
 
 .card-product .bottom-wrap {
   padding: 15px;
-  border-top: 1px solid #eee;
+  /* border-top: 1px solid #eee; */
 }
 
 .card-product .action-wrap {
@@ -71,4 +71,15 @@
 
 .card-product .title {
   margin-top: 0;
+}
+
+.btn.btn-success {
+  color: #6e6b6b;
+  background-color: #e2e2e2;
+  border-color: #e2e2e2;
+}
+.btn.btn-success:hover {
+  color: #6e6b6b;
+  background-color: #d6d6d6;
+  border-color: #d6d6d6;
 }

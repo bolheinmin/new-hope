@@ -1,8 +1,9 @@
-<h1>Shopping Cart</h1>
+<h1>စျေးခြင်းတောင်း</h1>
 <ng-container *ngIf="cart$ | async as cart">
   <p>
-    You have {{ cart.totalItemsCount }} items in your Shopping Cart.
-    <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-light">Clear Shopping Cart</button>
+    သင့်စျေးခြင်းတောင်းထဲတွင်ပစ္စည်း {{ cart.totalItemsCount }} ခုရှိသည်။
+    <!-- You have {{ cart.totalItemsCount }} items in your Shopping Cart. -->
+    <button *ngIf="cart.items.length" (click)="clearCart()" class="btn btn-light"><i class="fas fa-trash-alt" style="padding-right: 5px;"></i>ပယ်ဖျက်မည်</button>
   </p>
   
   <div class="row">
@@ -11,9 +12,10 @@
         <thead>
           <tr>
             <th></th>
-            <th>Ingredient</th>
-            <th class="text-center" style="width: 230px;">Quantity</th>
-            <th class="text-right" style="width: 200px;">Price</th>
+            <th>ပစ္စည်းအမည်</th>
+            <th class="text-center">နှုန်း</th>
+            <th class="text-center" style="width: 230px;">အရေအတွက်</th>
+            <th class="text-right" style="width: 200px;">စျေးနှုန်း</th>
           </tr>
         </thead>
         <tbody>
@@ -22,20 +24,22 @@
               <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail"></div>
             </td>
             <td>{{ item.title }}</td>
-            <td>
+            <td class="text-center">{{ item.price }} Ks</td>
+            <td class="text-center">
               <ingredient-quantity [ingredient]="item" [shopping-cart]="cart"></ingredient-quantity>
             </td>
-            <td class="text-right">{{ item.totalPrice | currency:'USD':'symbol' }}</td>
+            <td class="text-right">{{ item.totalPrice }} Ks</td>
           </tr>
         </tbody>
         <tfoot>
           <th></th>
           <th></th>
           <th></th>
-          <th class="text-right">{{ cart.totalPrice | currency:'USD':'symbol' }}</th>
+          <th class="text-right">စုစုပေါင်းကျသင့်ငွေ:</th>
+          <th class="text-right">{{ cart.totalPrice }} Ks</th>
         </tfoot>
       </table>
-      <a *ngIf="cart.items.length" routerLink="/check-out" class="btn btn-primary">Check Out</a>
+      <a *ngIf="cart.items.length" routerLink="/check-out" style="border-radius: 10px;" class="btn btn-success btn-lg">အော်ဒါမှာမည်</a>
     </div>
   </div>
 </ng-container>

@@ -12,9 +12,6 @@ import { faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 })
 export class LoginComponent implements OnInit {
 
-  fbIcon = faFacebook;
-  googleIcon = faGoogle;
-
   constructor(
     private auth: AuthService,
     private afAuth: AngularFireAuth,

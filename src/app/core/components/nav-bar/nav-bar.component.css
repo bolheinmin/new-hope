@@ -1,9 +1,60 @@
+.btn-sm {
+  padding: 10px 15px;
+}
+
+.btn-sm {
+  font-size: 10px;
+}
+
+.btn-blue-fb {
+  background-color: #4267b2;
+  border-radius: 6px;
+  border: 2px solid #4267b2;
+  color: #f8f8f8;
+}
+
+.btn-blue-fb:hover {
+  color: #fff;
+}
+
+.btn-blue-fb,
+.btn-white {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 15px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+
 /* new */
 
 .navbar-brand {
   color: #2CB54B;
   font-style: normal;
 }
+.navbar-brand:hover {
+  color: #249e40;
+}
+
 .navbar-icon-top .navbar-nav .nav-link>.fas {
   position: relative;
   width: 36px;
@@ -56,6 +107,7 @@ a {
 .navbar .nav-hover:hover {
   background-color: #e5e5e5;
 }
+
 .navbar .active {
   text-decoration: none;
   color: #2CB54B;

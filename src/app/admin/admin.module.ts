@@ -13,48 +13,47 @@ import { AdminOrdersComponent } from './components/admin-orders/admin-orders.com
 import { AdminViewOrderComponent } from './components/admin-view-order/admin-view-order.component';
 import { IngredientFormComponent } from './components/ingredient-form/ingredient-form.component';
 import { MealFormComponent } from './components/meal-form/meal-form.component';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 const routes: Routes = [
 	{
 		path: 'admin/ingredients/new',
 		component: IngredientFormComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/ingredients/:id',
 		component: IngredientFormComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/meals/new',
 		component: MealFormComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/meals/:id',
 		component: MealFormComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/meals',
 		component: AdminMealsComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/ingredients',
 		component: AdminIngredientsComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/orders',
 		component: AdminOrdersComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	},
 	{
 		path: 'admin/view-orders/:id',
 		component: AdminViewOrderComponent,
-		canActivate: [ AuthGuard, AdminAuthGuard ]
+		canActivate: [ AuthGuard ]
 	}
 ];
 

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'shared/models/order';
 import { ActivatedRoute } from '@angular/router';
-import { OrderService } from '../../../shared/services/order.service';
+import { OrderService } from 'shared/services/order.service';
 import { take } from 'rxjs/operators';
-import { Order } from '../../../shared/models/order';
 
 @Component({
-  selector: 'app-admin-view-order',
-  templateUrl: './admin-view-order.component.html',
-  styleUrls: ['./admin-view-order.component.css']
+  selector: 'app-view-orders',
+  templateUrl: './view-orders.component.html',
+  styleUrls: ['./view-orders.component.css']
 })
-export class AdminViewOrderComponent implements OnInit {
+export class ViewOrdersComponent implements OnInit {
 
   order: Order;
   id: string;

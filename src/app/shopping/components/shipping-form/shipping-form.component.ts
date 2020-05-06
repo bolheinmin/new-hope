@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OrderService } from '../../../shared/services/order.service';
-import { AuthService } from '../../../shared/services/auth.service';
-import { Order } from '../../../shared/models/order';
-import { take } from 'rxjs/operators';
-import { ShoppingCart } from '../../../shared/models/shopping-cart';
-import { Shipping } from '../../../shared/models/shipping';
 import { Subscription } from 'rxjs';
+
+import { Order } from '../../../shared/models/order';
+import { ShoppingCart } from '../../../shared/models/shopping-cart';
+import { AuthService } from '../../../shared/services/auth.service';
+import { OrderService } from '../../../shared/services/order.service';
+import { Shipping } from '../../../shared/models/shipping';
 
 @Component({
   selector: 'shipping-form',
@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
 export class ShippingFormComponent implements OnInit, OnDestroy {
 
   @Input('cart') cart: ShoppingCart;
-  shipping: Shipping = { name: '', addressLine1: '', addressLine2: '', city: '' };
+  shipping: Shipping = { name: '', phNumber: '', address: '', city: '' };
   private userId: string;
   userSubscription: Subscription;
 

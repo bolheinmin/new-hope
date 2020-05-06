@@ -1,15 +1,18 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-white mb-3 fixed-top">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light bg-light mb-3 fixed-top">
   <div class="container">
     <ul class="navbar-nav">
       <ng-template #unknownUser>
-        <li class="nav-item" routerLinkActive="active">
+        <li><a (click)="login()" class="btn-blue-fb btn-sm"><span class="fw-100"><i
+                class="fab fa-facebook-f"></i></span>
+            ဝင်မည်<span class="ico ico-log-in"><i class="fas fa-sign-in-alt"></i></span></a></li>
+        <!-- <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/login">
             <i class="far fa-user">
               <span>
                 Login
               </span>
             </i></a>
-        </li>
+        </li> -->
       </ng-template>
       <li class="nav-item" *ngIf="appUser as user; else unknownUser">
         <i class="far fa-user">
@@ -34,28 +37,34 @@
   </div>
 </nav>
 
-
-
-
 <div class="fr footer">
   <nav class="navbar fixed-bottom navbar-light bg-white nav-justified">
-    <a class="nav-hover nav-item" routerLinkActive="active"  routerLink="/">
+    <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/">
       <i class="fas fa-home"></i>
-      <div class="text-center">Home</div>
+      <div class="text-center">ပင်မစာမျက်နှာ</div>
     </a>
-    <a class="nav-hover nav-item" href="#">
+    <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/my/orders">
       <!-- <i class="fas fa-shopping-bag"></i> -->
       <i class="fas fa-list-ul"></i>
-      <div class="text-center">Meals</div>
+      <div class="text-center">မှာယူမှုများ</div>
+    </a>
+    <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/helps">
+      <i class="fas fa-question-circle"></i>
+      <div class="text-center">အကူအညီများ</div>
     </a>
     <!-- <a class="nav-hover nav-item" routerLinkActive="active">
       <i class="fas fa-truck-pickup"></i>
       <i class="fas fa-truck"></i>
       <div class="text-center">My Orders</div>
     </a> -->
-    <a class="nav-hover nav-item" routerLinkActive="active"  routerLink="/home">
+    <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/other">
       <i class="fas fa-ellipsis-h"></i>
-      <div class="text-center">Other</div>
+      <div class="text-center">အခြား</div>
+    </a>
+    <a *ngIf="showActions && appUser.isAdmin" class="nav-hover nav-item" routerLinkActive="active"
+      routerLink="/admin/panel">
+      <i class="fas fa-user-circle"></i>
+      <div class="text-center">Admin</div>
     </a>
   </nav>
 </div>

@@ -1,0 +1,23 @@
+.top {
+    height: env(safe-area-inset-top);
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background: #388E3C;
+    z-index: 500;
+}
+
+.middle {
+    margin-top: env(safe-area-inset-top);
+    height: 100%;
+}
+
+.container {
+    padding-top: 1rem;
+    padding-bottom: calc(env(safe-area-inset-bottom) + 5rem);
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+}

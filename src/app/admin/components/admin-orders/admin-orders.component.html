@@ -1,9 +1,10 @@
-<h1>Orders</h1>
+<h1>အော်ဒါများ</h1>
 <table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
-      <th>Date</th>
+      <th>ဝယ်သူအမည်</th>
+      <th>ဖုန်းနံပါတ်</th>
+      <th>ရက်စွဲ</th>
       <th></th>
     </tr>
   </thead>
@@ -11,13 +12,13 @@
     <tr *ngFor="let order of orders$ | async">
 
       <td>{{ order.shipping.name }}</td>
-      <td>{{ order.datePlaced.toDate() | date:'yyyy/MM/dd h:mm:ss a'}}</td>
+      <td>{{ order.shipping.phNumber }}</td>
+      <td>{{ order.datePlaced.seconds * 1000 | date:'MM-dd-yyyy'}}</td>
       <td>
-        <a [routerLink]="['/admin/view-orders',order.id]">View</a>
+        <a [routerLink]="['/admin/view-orders',order.id]">ကြည့်မည်</a>
       </td>
     </tr>
   </tbody>
 </table>
-
 <!-- <td>{{ order.items[0].product.title }}</td>
 <td>{{ order.items[1].totalPrice }}</td> -->
