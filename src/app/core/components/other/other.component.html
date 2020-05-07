@@ -17,8 +17,8 @@
       <i class="fas fa-chevron-right"></i>
   </a>
 </div> -->
+<div class="text-center"><h2><strong>အခြား</strong></h2></div>
 
-<h6><strong>အခြား</strong></h6>
 <div class="list-group">
   <a routerLink="/my/orders" class="list-group-item list-group-item-action list-group-item-light">
     <div class="md-v-line"></div><i class="fas fa-list-ul mr-3"></i>မှာယူမှုမှတ်တမ်းများ
@@ -40,7 +40,7 @@
     <div class="md-v-line"></div><i class="fas fa-info mr-3"></i>New Hope အကြောင်း
     <i class="fas fa-chevron-right float-right"></i>
   </a>
-  <a routerLink="/helps" class="list-group-item list-group-item-action list-group-item-light">
+  <a (click)="logout()" class="list-group-item list-group-item-action list-group-item-light">
     <div class="md-v-line"></div><i class="fas fa-sign-out-alt mr-3"></i>Account မှထွက်မည်
     <i class="fas fa-chevron-right float-right"></i>
   </a>

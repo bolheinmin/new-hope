@@ -1,13 +1,3 @@
-<!-- <figure class="card card-product">
-  <div class="img-wrap">
-    <img class="card-img-top" [src]="meals.imageUrl" alt="">
-  </div>
-  <figcaption class="info-wrap">
-    <h5 class="title text-dots">{{ meals.description }}</h5>
-  </figcaption>
-</figure>
-<h5>{{ meals.ingredients }}</h5> -->
-
 <section class="meal-section">
     <div class="meal-img"
     [style.backgroundImage]="'url(' + meals.imageUrl + ')'">
@@ -19,13 +9,12 @@
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <h1 class="blue">{{ meals.name }}</h1>
-        <h4>{{ meals.description }}</h4>
       </div>
     </div>
   </div>
 </section>
-
-<h1 class="mt-4"><strong>Ingredients</strong></h1>
+<hr>
+<h1 class="mt-4"><strong>ပါဝင်ပစ္စည်းများ</strong></h1>
 
 <div class="container-fluid" style="margin-bottom: 50px;">
   <div class="row">

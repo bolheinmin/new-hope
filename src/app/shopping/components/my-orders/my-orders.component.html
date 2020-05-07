@@ -1,4 +1,4 @@
-<h1>မှာယူမှုမှတ်တမ်းများ</h1>
+<div class="text-center"><h2><strong>မှာယူမှုမှတ်တမ်းများ</strong></h2></div>
 <table class="table">
   <thead>
     <tr>
@@ -12,7 +12,7 @@
       <td>{{ order.payload.doc.data().shipping.name }}</td>
       <td>{{ order.payload.doc.data().datePlaced.seconds * 1000 | date:'MM-dd-yyyy' }}</td>
       <td>
-        <a [routerLink]="['/my/orders/',order.payload.doc.id]">View</a>
+        <a [routerLink]="['/my/orders/',order.payload.doc.id]" style="text-decoration:none;">ကြည့်မည်</a>
       </td>
     </tr>
   </tbody> 

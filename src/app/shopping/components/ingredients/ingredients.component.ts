@@ -1,19 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap, take } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { Meal } from 'shared/models/meal';
 import { Ingredient } from 'shared/models/ingredient';
-
-import { IngredientService } from '../../../shared/services/ingredient.service';
-import { ShoppingCartService } from '../../../shared/services/shopping-cart.service';
-import { Meal } from '../../../shared/models/meal';
-import { MealService } from '../../../shared/services/meal.service';
+import { ActivatedRoute } from '@angular/router';
+import { IngredientService } from 'shared/services/ingredient.service';
+import { ShoppingCartService } from 'shared/services/shopping-cart.service';
+import { MealService } from 'shared/services/meal.service';
+import { take, switchMap } from 'rxjs/operators';
 
 @Component({
-	selector: 'app-products',
-	templateUrl: './products.component.html',
-	styleUrls: [ './products.component.css' ]
+  selector: 'app-ingredients',
+  templateUrl: './ingredients.component.html',
+  styleUrls: ['./ingredients.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class IngredientsComponent implements OnInit {
 	meals: Meal = { id: '', name: '', description: '', ingredients: '', meat: '', imageUrl: '' };
 	ingredients: Ingredient[] = [];
 	filteredIngredients: Ingredient[] = [];

@@ -18,19 +18,18 @@ import { AppComponent } from './app.component';
 import { AdminPanel } from './core/components/admin-panel/admin-panel.component';
 import { HelpsComponent } from './core/components/helps/helps.component';
 import { LoginComponent } from './core/components/login/login.component';
-import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { OtherComponent } from './core/components/other/other.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './material/material.module';
 import { SharedModule } from './shared/shared.module';
+import { MealsComponent } from './shopping/components/meals/meals.component';
 import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
-import { ProductFilterComponent } from './shopping/components/products/product-filter/product-filter.component';
 import { ShoppingModule } from './shopping/shopping.module';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: ProductFilterComponent
+		component: MealsComponent
 	},
 	{
 		path: 'admin/panel',
@@ -53,10 +52,6 @@ const routes: Routes = [
 	{
 		path: 'login',
 		component: LoginComponent
-	},
-	{
-		path: '**',
-		component: NotFoundComponent
 	}
 ];
 

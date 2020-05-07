@@ -2,10 +2,10 @@
   <mat-card-content>
     <div class="search-div">
       <button mat-raised-button routerLink="/admin/ingredients/new">
-        <mat-icon>add</mat-icon>Create
+        <mat-icon>add</mat-icon>အသစ်ထည့်
       </button>
       <mat-form-field class="search-form-field" floatLabel="never">
-        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" #query
+        <input matInput [(ngModel)]="searchKey" placeholder="ရှာဖွေပါ.." autocomplete="off" #query
           (keyup)="filter(query.value)">
         <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
           <mat-icon>close</mat-icon>
@@ -15,21 +15,21 @@
     <div class="mat-elevation-z8">
       <mat-table [dataSource]="listData" matSort>
         <ng-container matColumnDef="imageUrl">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header><strong>ရုပ်ပုံ</strong></mat-header-cell>
           <mat-cell *matCellDef="let ingredient">
             <div [style.backgroundImage]="'url(' + ingredient.imageUrl + ')'" class="thumbnail"></div>
           </mat-cell>
         </ng-container>
         <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header><strong>အမည်</strong></mat-header-cell>
           <mat-cell *matCellDef="let ingredient">{{ingredient.title}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="meal">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Meal</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header><strong>ဟင်းပွဲ</strong></mat-header-cell>
           <mat-cell *matCellDef="let ingredient">{{ingredient.meal}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="price">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header><strong>စျေးနှုန်း</strong></mat-header-cell>
           <mat-cell *matCellDef="let ingredient">{{ingredient.price}} Ks</mat-cell>
         </ng-container>
         <ng-container matColumnDef="actions">
@@ -40,19 +40,9 @@
               <mat-icon>launch</mat-icon>
             </button>
             <button mat-icon-button color="warn" (click)="onDelete(ingredient.id)">
-              <mat-icon>delete_outline</mat-icon>
+              <mat-icon>delete_forever</mat-icon>
             </button>
           </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="loading">
-          <mat-footer-cell *matFooterCellDef colspan="6">
-            Loading data...
-          </mat-footer-cell>
-        </ng-container>
-        <ng-container matColumnDef="noData">
-          <mat-footer-cell *matFooterCellDef colspan="6">
-            No data.
-          </mat-footer-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

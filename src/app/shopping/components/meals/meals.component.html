@@ -31,22 +31,23 @@
    </div>
  </section>
 
- <img class="big-circle" src="assets/img/big-eclipse.svg" alt="" />
- <img class="medium-circle" src="assets/img/mid-eclipse.svg" alt="" />
- <img class="small-circle" src="assets/img/small-eclipse.svg" alt="" />
+ <img class="big-circle" src="assets/img/big-eclipse.svg" />
+ <img class="medium-circle" src="assets/img/mid-eclipse.svg" />
+ <img class="small-circle" src="assets/img/small-eclipse.svg" />
 
  <div class="row">
-   <div class="col-sm-12 col-md-4" *ngFor="let m of meals$ | async;">
-     <a class="img-zoom" tabindex="-1" [routerLink]="['/meals/', m.id]" [queryParams]="{ meal: m.name }">
-       <div class="card shadow mt-4 mb-4">
-         <div class="img-wrap">
-           <img [src]="m.imageUrl" alt="{{ m.name }}" class="card-img-top">
-         </div>
-         <div class="card-body text-decoration-none">
-           <h2 class="card-text text-dark pt-1 pb-2 text-decoration-none"><strong>{{ m.name }}</strong></h2>
-           <h3 class="card-text text-success pb-1">အသားအမျိုးအစား &mdash; {{ m.meat }}</h3>
-         </div>
-       </div>
-     </a>
-   </div>
- </div>
+    <div class="col-sm-12 col-md-4" *ngFor="let m of meals$ | async;">
+      <a class="img-zoom" tabindex="-1" [routerLink]="['/meals/', m.id]" [queryParams]="{ meal: m.name }">
+        <div class="card shadow mt-4 mb-4">
+          <div class="img-wrap">
+            <img [src]="m.imageUrl" alt="{{ m.name }}" class="card-img-top">
+          </div>
+          <div class="card-body text-decoration-none">
+            <h2 class="card-text text-dark pt-1 pb-2 text-decoration-none"><strong>{{ m.name }}</strong></h2>
+            <h3 class="card-text text-success pb-1">အသားအမျိုးအစား &mdash; {{ m.meat }}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+ 

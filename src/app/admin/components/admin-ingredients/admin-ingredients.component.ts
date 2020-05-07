@@ -22,7 +22,7 @@ export class AdminIngredientsComponent implements OnInit, OnDestroy {
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	searchKey: string;
 
-	constructor(private ingredientService: IngredientService, private router: Router, private dialog: MatDialog) {}
+	constructor(private ingredientService: IngredientService, private router: Router) {}
 
 	ngOnInit() {
 		this.subscription = this.ingredientService.getAllIngredients().subscribe((ingredients) => {

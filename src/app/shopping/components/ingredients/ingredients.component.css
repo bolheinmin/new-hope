@@ -60,27 +60,6 @@ section {
   color: #093e5b;
 }
 
-h1 {
-  font-size: 30px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.h1,
-h1 {
-  font-size: 36px;
-}
-
-
 
 
 /* Old */

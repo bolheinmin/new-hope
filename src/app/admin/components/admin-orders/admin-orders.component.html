@@ -1,4 +1,4 @@
-<h1>အော်ဒါများ</h1>
+<!-- <h1>အော်ဒါများ</h1>
 <table class="table">
   <thead>
     <tr>
@@ -19,6 +19,33 @@
       </td>
     </tr>
   </tbody>
-</table>
-<!-- <td>{{ order.items[0].product.title }}</td>
-<td>{{ order.items[1].totalPrice }}</td> -->
+</table> -->
+<div class="text-center"><h2><strong>မှာယူမှုမှတ်တမ်းများ</strong></h2></div>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="listData" matSort>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><strong>ဝယ်သူအမည်</strong></mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.shipping.name }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="phNum">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><strong>ဖုန်းနံပါတ်</strong></mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.shipping.phNumber }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef mat-sort-header><strong>ရက်စွဲ</strong></mat-header-cell>
+      <mat-cell *matCellDef="let order">{{ order.datePlaced.seconds * 1000 | date:'MM-dd-yyyy' }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let order">
+        <!-- <a [routerLink]="['/admin/orders/', order.id]"><mat-icon>launch</mat-icon></a> -->
+        <button mat-icon-button [routerLink]="['/admin/view-orders',order.id]">
+          <mat-icon>launch</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+</div>
