@@ -45,11 +45,6 @@ const routes: Routes = [
 		component: OtherComponent
 	},
 	{
-		path: 'my/orders',
-		component: MyOrdersComponent,
-		canActivate: [ AuthGuard ]
-	},
-	{
 		path: 'login',
 		component: LoginComponent
 	}

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbAccordionModule, NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataTableModule } from 'angular5-data-table';
 import { CustomFormsModule } from 'ngx-custom-validators';
 
@@ -17,13 +16,9 @@ import { IngredientQuantityComponent } from './components/ingredient-quantity/in
 		CommonModule,
 		FormsModule,
 		CustomFormsModule,
-		DataTableModule,
 		AngularFirestoreModule,
 		AngularFireAuthModule,
-		MaterialModule,
-		NgbDropdownModule,
-		NgbCollapseModule,
-		NgbAccordionModule
+		MaterialModule
 	],
 	exports: [
 		IngredientCardComponent,
@@ -35,10 +30,7 @@ import { IngredientQuantityComponent } from './components/ingredient-quantity/in
 		DataTableModule,
 		AngularFirestoreModule,
 		AngularFireAuthModule,
-		MaterialModule,
-		NgbDropdownModule,
-		NgbCollapseModule,
-		NgbAccordionModule
+		MaterialModule
 	]
 })
 export class SharedModule {}
