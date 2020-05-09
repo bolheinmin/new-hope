@@ -1,10 +1,11 @@
+<div class="text-center"><h2>Meal Form</h2></div>
 <div class="row d-flex justify-content-center">
   <div class="col-md-6">
     <div class="card">
       <div class="card-body">
         <form #f="ngForm" (ngSubmit)="save(f.value)">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name(အမည်)</label>
             <input #name="ngModel" [(ngModel)]="meal.name" name="name" id="name" type="text" class="form-control"
               required>
             <div class="alert alert-danger" *ngIf="name.invalid && (name.touched || name.dirty)">
@@ -12,7 +13,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="meat">Meat</label>
+            <label for="meat">Meat(အသားအမျိုးအစား)</label>
             <select #meat="ngModel" [(ngModel)]="meal.meat" name="meat" id="meat" class="form-control" required>
               <option value=""></option>
               <option *ngFor="let m of meat$ | async" [value]="m.id">
@@ -20,15 +21,15 @@
               </option>
             </select>
             <div class="alert alert-danger" *ngIf="meat.invalid && (meat.touched || meat.dirty)">
-              meat is required!
+              Meat is required!
             </div>
           </div>
           <div class="form-group">
-            <label for="imageUrl">Image URL</label>
+            <label for="imageUrl">Image(ရုပ်ပုံ)</label>
             <input #imageUrl="ngModel" [(ngModel)]="meal.imageUrl" name="imageUrl" id="imageUrl" type="file"
               accept="image/*" class="form-control" (change)="showPreview($event)">
           </div>
-          <button class="btn btn-primary" [disabled]="f.invalid">Save</button>
+          <button class="btn btn-primary" [disabled]="f.invalid">သိမ်းမည်</button>
         </form>
       </div>
     </div>

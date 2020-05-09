@@ -5,15 +5,15 @@
       <div class="card-body">
         <form #f="ngForm" (ngSubmit)="save(f.value)">
           <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">Name(အမည်)</label>
             <input #title="ngModel" [(ngModel)]="ingredient.title" name="title" id="title" type="text"
               class="form-control" required>
             <div class="alert alert-danger" *ngIf="title.invalid && (title.touched || title.dirty)">
-              Title is required!
+              Name is required!
             </div>
           </div>
           <div class="form-group">
-            <label for="price">Price</label>
+            <label for="price">Price(စျေးနှုန်း)</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Ks</span>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="meal">Meal</label>
+            <label for="meal">Meal(ဟင်းပွဲ)</label>
             <select #meal="ngModel" [(ngModel)]="ingredient.meal" name="meal" id="meal" class="form-control" required>
               <option value=""></option>
               <option *ngFor="let m of meals$ | async" [value]="m.name">
@@ -35,15 +35,15 @@
               </option>
             </select>
             <div class="alert alert-danger" *ngIf="meal.invalid && (meal.touched || meal.dirty)">
-              meal is required!
+              Meal is required!
             </div>
           </div>
           <div class="form-group">
-            <label for="imageUrl">Image URL</label>
+            <label for="imageUrl">Image(ရုပ်ပုံ)</label>
             <input #imageUrl="ngModel" [(ngModel)]="ingredient.imageUrl" name="imageUrl" id="imageUrl" type="file"
               accept="image/*" class="form-control" (change)="showPreview($event)">
           </div>
-          <button class="btn btn-primary" [disabled]="f.invalid">Save</button>
+          <button class="btn btn-primary" [disabled]="f.invalid">သိမ်းမည်</button>
         </form>
       </div>
     </div>
