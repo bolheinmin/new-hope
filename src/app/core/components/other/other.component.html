@@ -21,11 +21,11 @@
 
 <div class="list-group">
   <a routerLink="/my/orders" class="list-group-item list-group-item-action list-group-item-light">
-    <div class="md-v-line"></div><i class="fas fa-list-ul mr-3"></i>မှာယူမှုမှတ်တမ်းများ
+    <div class="md-v-line"></div><i class="fas fa-list-ul mr-3"></i><strong>မှာယူမှုမှတ်တမ်းများ</strong>
     <i class="fas fa-chevron-right float-right"></i>
   </a>
   <a routerLink="/shopping-cart" class="list-group-item list-group-item-action list-group-item-light">
-    <div class="md-v-line"></div><i class="fas fa-shopping-cart mr-3"></i>စျေးခြင်းတောင်း
+    <div class="md-v-line"></div><i class="fas fa-shopping-cart mr-3"></i><strong>စျေးခြင်းတောင်း</strong>
     <span class="badge-pill badge-success" *ngIf="cart$ | async as cart">
       {{ cart.totalItemsCount }}
     </span>
@@ -33,15 +33,15 @@
   </a>
 
   <a routerLink="/helps" class="list-group-item list-group-item-action list-group-item-light">
-    <div class="md-v-line"></div><i class="fas fa-question mr-3"></i>အကူအညီများ
+    <div class="md-v-line"></div><i class="fas fa-question mr-3"></i><strong>အကူအညီများ</strong>
     <i class="fas fa-chevron-right float-right"></i>
   </a>
   <a routerLink="/helps" class="list-group-item list-group-item-action list-group-item-light">
-    <div class="md-v-line"></div><i class="fas fa-info mr-3"></i>New Hope အကြောင်း
+    <div class="md-v-line"></div><i class="fas fa-info mr-3"></i><strong>New Hope အကြောင်း</strong>
     <i class="fas fa-chevron-right float-right"></i>
   </a>
   <a (click)="logout()" class="list-group-item list-group-item-action list-group-item-light">
-    <div class="md-v-line"></div><i class="fas fa-sign-out-alt mr-3"></i>Account မှထွက်မည်
+    <div class="md-v-line"></div><i class="fas fa-sign-out-alt mr-3"></i><strong>Account မှထွက်မည်</strong>
     <i class="fas fa-chevron-right float-right"></i>
   </a>
 </div>

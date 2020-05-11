@@ -30,7 +30,7 @@ export class NavBarComponent implements OnInit {
   }
 
   login(){
-    this.auth.login();
+    this.auth.loginWithFacebook();
   }
 
   logout(){

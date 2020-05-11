@@ -21,11 +21,17 @@ export class AuthService {
     this.user$ = afAuth.authState;
   }
 
-  login(){
+  loginWithFacebook(){
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
     this.afAuth.signInWithRedirect(new auth.FacebookAuthProvider());
   }
+
+  // loginWithGoogle(){
+  //   const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+  //   localStorage.setItem('returnUrl', returnUrl);
+  //   this.afAuth.signInWithRedirect(new auth.GoogleAuthProvider());
+  // }
 
   logout(){
     this.afAuth.signOut();

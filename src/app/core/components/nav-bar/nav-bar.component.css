@@ -28,10 +28,6 @@
   text-align: center;
   text-transform: uppercase;
   transition: all .2s ease-in-out;
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -ms-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
 }
 
 .btn-sm {
@@ -44,8 +40,6 @@
 .fw-100 {
   font-weight: 100;
 }
-
-/* new */
 
 .navbar-brand {
   color: #2CB54B;
@@ -61,7 +55,7 @@
   font-size: 24px;
 }
 
-.navbar-icon-top .navbar-nav .nav-link>.fas>.badge {
+.navbar-icon-top .navbar-nav .nav-link>.fas>.badge-pill {
   font-size: 0.75rem;
   position: absolute;
   right: 0;
@@ -73,12 +67,10 @@
   line-height: 12px;
 }
 
-.navbar-icon-top .navbar-nav .nav-link>.fas>.badge {
+.navbar-icon-top .navbar-nav .nav-link>.fas>.badge-pill {
   top: -10px;
 }
 
-
-/* exist */
 a {
   text-decoration: none;
   background-color: transparent;

@@ -26,8 +26,8 @@
     <ul class="navbar-nav">
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/shopping-cart">
-          <i class="fas fa-shopping-cart" style="color: #e2e2e2;">
-            <span class="badge badge-success" *ngIf="cart$ | async as cart">
+          <i class="fas fa-shopping-cart" style="color: #9c9c9c;">
+            <span class="badge-pill badge-success" *ngIf="cart$ | async as cart">
               {{ cart.totalItemsCount }}
             </span>
           </i>
@@ -41,16 +41,16 @@
   <nav class="navbar fixed-bottom navbar-light bg-white nav-justified">
     <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/">
       <i class="fas fa-home"></i>
-      <div class="text-center">ပင်မစာမျက်နှာ</div>
+      <div class="text-center"><strong>ပင်မစာမျက်နှာ</strong></div>
     </a>
     <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/my/orders">
       <!-- <i class="fas fa-shopping-bag"></i> -->
       <i class="fas fa-list-ul"></i>
-      <div class="text-center">မှာယူမှုများ</div>
+      <div class="text-center"><strong>မှာယူမှုများ</strong></div>
     </a>
     <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/helps">
       <i class="fas fa-question-circle"></i>
-      <div class="text-center">အကူအညီများ</div>
+      <div class="text-center"><strong>အကူအညီများ</strong></div>
     </a>
     <!-- <a class="nav-hover nav-item" routerLinkActive="active">
       <i class="fas fa-truck-pickup"></i>
@@ -59,12 +59,12 @@
     </a> -->
     <a class="nav-hover nav-item" routerLinkActive="active" routerLink="/other">
       <i class="fas fa-ellipsis-h"></i>
-      <div class="text-center">အခြား</div>
+      <div class="text-center"><strong>အခြား</strong></div>
     </a>
     <a *ngIf="showActions && appUser.isAdmin" class="nav-hover nav-item" routerLinkActive="active"
       routerLink="/admin/panel">
       <i class="fas fa-user-circle"></i>
-      <div class="text-center">Admin</div>
+      <div class="text-center"><strong>Admin</strong></div>
     </a>
   </nav>
 </div>
